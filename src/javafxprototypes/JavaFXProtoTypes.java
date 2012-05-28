@@ -11,36 +11,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafxprototypes.client.Browser;
+import javafxprototypes.client.Header;
 
-/**
- *
- * @author miyabetaiji
- */
 public class JavaFXProtoTypes extends Application {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
     
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hello World!");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        primaryStage.setTitle("proto type");
 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
+        //Header browser = new Header(null, null);
+        Browser browser = new Browser();
+        primaryStage.setScene(new Scene(browser, 1024, 768));
         primaryStage.show();
     }
 }
