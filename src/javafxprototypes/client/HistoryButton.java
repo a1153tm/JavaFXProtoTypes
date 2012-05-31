@@ -1,27 +1,30 @@
 package javafxprototypes.client;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ListChangeListener.Change;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 public abstract class HistoryButton extends Button
 {
-    protected ObjectProperty<Transitions> transitions;
+    protected Transitions transitions;
+    protected ObservableList<View> history;
 
-    public HistoryButton(Transitions transitions)
+    protected HistoryButton(Transitions transitions)
     {
-        this.transitions = new SimpleObjectProperty<Transitions>();
-        this.transitions.set(transitions);
-        this.transitions.addListener(new ChangeListener<Transitions>()
+        this.transitions = transitions;
+        this.history = getHistory();
+
+        this.history.addListener(new ListChangeListener<View>()
         {
-            public void changed(ObservableValue<? extends Transitions> source,
-                                Transitions oldTransitions, Transitions newTransitions)
-            {
-                HistoryButton.this.changed(newTransitions);
+            @Override
+            public void onChanged(Change<? extends View> c) {
+                if (history.isEmpty())
+                    HistoryButton.this.setDisable(true);
+                else
+                    HistoryButton.this.setDisable(false);
             }
         });
 
@@ -30,16 +33,17 @@ public abstract class HistoryButton extends Button
             @Override
             public void handle(ActionEvent event)
             {
-                Transitions transitions = HistoryButton.this.transitions.get();
-                if (transitions != null)
+                if (HistoryButton.this.transitions != null)
                     doAction();
                 else
                     throw new IllegalStateException("A Transitions must be set before using this HistoyButton");
             }
         });
+        
+        setDisable(true);
     }
     
-    protected abstract void changed(Transitions newTransitions);
+    protected abstract ObservableList<View> getHistory();
     protected abstract void doAction();
-    protected abstract void setView();
+    protected abstract void buildView();
 }

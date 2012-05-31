@@ -1,33 +1,33 @@
 package javafxprototypes.client;
 
+import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class ForwardButton extends HistoryButton
 {
     public ForwardButton(Transitions transitions)
     {
         super(transitions);
-        setView();
-    }
-
-    @Override
-    protected void changed(Transitions newTransitions)
-    {
-        if (newTransitions.isTopOfHistory())
-        {
-        }
+        buildView();
     }
 
     @Override
     protected void doAction()
     {
-        transitions.get().goForward();
+        transitions.goForward();
     }
 
     @Override
-    protected void setView()
+    protected void buildView()
     {
-        Image imageDecline = new Image(getClass().getResourceAsStream("nav-forward.png"));
+        Image image = new Image(getClass().getResourceAsStream("nav-forward.png"));
+        setGraphic(new ImageView(image));
         setStyle("-fx-content-display: graphic-only;");
+    }
+
+    @Override
+    protected ObservableList<View> getHistory() {
+        return transitions.getForwardHistory();
     }
 }

@@ -13,9 +13,10 @@ public class Header extends StackPane
     private AddressBar addresBar;
     private String title;
     
-    public Header(Transitions transitions, String title)
+    public Header(Browser browser, String title)
     {
-        buildView(transitions, title);
+        this.browser = browser;
+        buildView(browser.getTransitions(), title);
     }
         
     private void buildView(Transitions transitions, String title)
@@ -46,6 +47,6 @@ public class Header extends StackPane
 
     private void buildAddressBar(Transitions transitions)
     {
-        addresBar = new AddressBar(transitions);
+        addresBar = new AddressBar(browser);
     }
 }

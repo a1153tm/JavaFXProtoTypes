@@ -1,39 +1,50 @@
 package javafxprototypes.client;
 
-import java.util.LinkedList;
-import java.util.List;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Transitions
 {
-    private List<View> fowardHistory = new LinkedList<View>();
-    private List<View> backHistory = new LinkedList<View>();
-    private View currentView = null;
-    
+    private ObjectProperty<View> currentView;
+    private ObservableList<View> backHistory;
+    private ObservableList<View> forwardHistory;
+
+    public Transitions()
+    {
+        currentView = new SimpleObjectProperty<View>();
+        backHistory = FXCollections.observableArrayList();
+        forwardHistory = FXCollections.observableArrayList();
+    }
+
     public View getCurrentView()
     {
-        return currentView;
+        return currentView.get();
     }
     
     public void goTo(View newView)
     {
-        View oldView = currentView;
-        currentView = newView;
+        View oldView = currentView.get();
+        currentView.set(newView);
         
-        if (oldView != currentView)
+        if (oldView != newView)
         {
-            fowardHistory.clear();
+            forwardHistory.clear();
             backHistory.add(oldView);
         }
     }
     
     public void goForward()
     {
-        if (!fowardHistory.isEmpty())
+        if (!forwardHistory.isEmpty())
         {
-            if (currentView != null)
-                backHistory.add(backHistory.size(), currentView);
-            View fowardView = backHistory.remove(0);
-            currentView = fowardView;
+            if (currentView.get() != null) {
+                System.out.println("forwarding");
+                backHistory.add(backHistory.size(), currentView.get());
+            }
+            View forwardView = forwardHistory.remove(0);
+            currentView.set(forwardView);
         }
     }
         
@@ -41,20 +52,40 @@ public class Transitions
     {
         if (!backHistory.isEmpty())
         {
-            if (currentView != null)
-                fowardHistory.add(0, currentView);
+            if (currentView.get() != null)
+                forwardHistory.add(0, currentView.get());
             View backView = backHistory.remove(backHistory.size() - 1);
-            currentView = backView;
+            currentView.set(backView);
         }
     }
 
     public boolean isTopOfHistory()
     {
-        return fowardHistory.isEmpty();
+        return forwardHistory.isEmpty();
     }
 
     public boolean isLastOfHistory()
     {
         return backHistory.isEmpty();
+    }
+
+    public ObjectProperty<View> currentViewProperty()
+    {
+        return currentView;
+    }
+
+    public ObservableList<View> getBackHistory()
+    {
+        return backHistory;
+    }
+
+    public ObservableList<View> getForwardHistory()
+    {
+        return forwardHistory;
+    }
+    
+    public void setCurrentView(View view)
+    {
+        currentView.set(view);
     }
 }

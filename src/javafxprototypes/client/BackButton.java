@@ -1,30 +1,33 @@
 package javafxprototypes.client;
 
+import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class BackButton extends HistoryButton {
 
     public BackButton(Transitions transitions)
     {
         super(transitions);
-    }
-
-    @Override
-    protected void changed(Transitions newTransitions)
-    {
-        if (newTransitions.isLastOfHistory())
-        {
-        }
+        buildView();
     }
 
     @Override
     protected void doAction()
     {
-        transitions.get().goBack();
+        transitions.goBack();
     }
 
     @Override
-    protected void setView()
+    protected void buildView()
     {
+        Image image = new Image(getClass().getResourceAsStream("nav-back.png"));
+        setGraphic(new ImageView(image));
         setStyle("-fx-content-display: graphic-only;");
-        setStyle("-fx-graphic: url(\"nav-back.png\")");
+    }
+
+    @Override
+    protected ObservableList<View> getHistory() {
+        return transitions.getBackHistory();
     }
 }
