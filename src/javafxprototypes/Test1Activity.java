@@ -22,5 +22,6 @@ public class Test1Activity extends AbstractActivity
         form.getChildren().addAll(label, tf, rb);
 
         setView(new View(form));
+
     }
 }
