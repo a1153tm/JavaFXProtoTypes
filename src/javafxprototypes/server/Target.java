@@ -7,6 +7,7 @@ package javafxprototypes.server;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafxprototypes.client.AbstractActivity;
 
 /**
  *

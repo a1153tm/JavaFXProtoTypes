@@ -7,6 +7,9 @@ package javafxprototypes.server;
 import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafxprototypes.client.AbstractActivity;
+import javafxprototypes.client.Browser;
+import javafxprototypes.client.View;
 
 /**
  * 
@@ -14,16 +17,13 @@ import java.util.logging.Logger;
  */
 public class Service {
     
+    private static final Service instance = new Service();
+
     private Service() {
     }
     
     public static Service getInstance() {
-        return ServiceHolder.INSTANCE;
-    }
-    
-    private static class ServiceHolder {
-
-        private static final Service INSTANCE = new Service();
+        return instance;
     }
     
     public void doService(Request request) {
@@ -38,7 +38,7 @@ public class Service {
         
         View view = null;
         try {
-            view = Invoker.invoke(activity, target.getMethod());
+            view = Invoker.invoke(activity, target.getMethod(), request.getParameters());
             
         } catch (IllegalAccessException ex) {
             Logger.getLogger(Service.class.getName()).log(Level.SEVERE, null, ex);
