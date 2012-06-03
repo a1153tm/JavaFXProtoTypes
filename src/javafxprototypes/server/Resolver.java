@@ -7,7 +7,6 @@ package javafxprototypes.server;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,10 +16,16 @@ import java.util.Map;
  */
 public class Resolver {
     
+    private static final Resolver instance = new Resolver();
+
     private static final String PATH = "route.txt";
     
     private Map<String, Target> routes = new HashMap<String, Target>();
 
+    public static Resolver getInstance() {
+        return instance;
+    }
+    
     private Resolver() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(PATH));
@@ -37,15 +42,7 @@ public class Resolver {
         }
      }
     
-    public static Resolver getInstance() {
-        return ResolverHolder.INSTANCE;
-    }
-    
-    private static class ResolverHolder {
-        private static final Resolver INSTANCE = new Resolver();
-    }
-    
-    public Target resolve(String url, Method method) {
+    public Target resolve(String url, String method) {
         return this.routes.get(url);
     }
     
