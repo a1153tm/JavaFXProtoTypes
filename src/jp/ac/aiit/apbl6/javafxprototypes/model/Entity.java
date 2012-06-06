@@ -1,6 +1,5 @@
 package jp.ac.aiit.apbl6.javafxprototypes.model;
 
-import java.io.IOException;
 import java.util.List;
 
 public abstract class Entity

@@ -25,9 +25,7 @@
             <Font name="Al Bayan Plain" size="20.0" />
           </font>
         </Label>
-        <TextArea id="textArea1" editable="false" prefHeight="60.0" prefWidth="984.0" text="データ入力画面のサンプルです。以下フォームデータをPOSTし、次画面へ遷移します。
-遷移の際に、データをJSON形式で保存・永続化します。
-次画面では保存されているデータの一覧を表示します。" wrapText="true" />
+        <TextArea id="textArea1" editable="false" prefHeight="60.0" prefWidth="984.0" text="?�??タ入力画面のサンプルです�?以下フォー?�??�?�ータをPOSTし�?次画面へ遷移します�? 遷移の際に、データをJSON形式で保存�?永続化します�? 次画面では保存されて?�??�?�?�??タの?�??�?�を表示します�?" wrapText="true" />
         <AnchorPane id="anchorPane1" prefHeight="496.0" prefWidth="984.0" style="-fx-background-color: #fffff0;">
           <children>
             <GridPane id="gridPane1" fx:id="form" alignment="CENTER_LEFT" layoutX="14.0" layoutY="7.0" prefHeight="263.0" prefWidth="707.0" vgap="10.0">
@@ -40,7 +38,11 @@
                 <Label id="label2" font="$x1" text="Radio Button :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                 <Label id="label2" font="$x1" text="Checkbox :" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <Label id="label2" font="$x1" text="Choice Box :" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                <TilePane id="tilePane1" fx:id="buttonHerer" alignment="CENTER" prefHeight="57.0" prefWidth="586.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TilePane id="tilePane1" fx:id="buttonHerer" alignment="CENTER" prefHeight="57.0" prefWidth="586.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <children>
+                    <Button id="button1" fx:id="test" onAction="testButtonClick" text="Button" />
+                  </children>
+                </TilePane>
                 <TextField id="textField1" fx:id="textField" GridPane.columnIndex="1" GridPane.rowIndex="0">
                   <maxHeight>
                     <Integer fx:value="-1" />
@@ -62,21 +64,18 @@
                   </prefWidth>
                 </TextField>
                 <HBox id="hBox1" alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="586.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                  <fx:define>
-                    <ToggleGroup fx:id="toggleGroup"/>
-                  </fx:define>
                   <children>
-                    <RadioButton id="radio" fx:id="radioButton" toggleGroup="$toggleGroup" selected="true" text="Radio-A" />
-                    <RadioButton id="radio" fx:id="radioButton" toggleGroup="$toggleGroup" text="Radio-B" />
+                    <RadioButton id="radioButton1" fx:id="radioA" selected="true" text="Radio-A"/>
+                    <RadioButton id="radioButton2" fx:id="radioB" text="Radio-B"/>
                   </children>
                 </HBox>
                 <HBox id="hBox1" alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="586.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                   <children>
-                    <CheckBox id="checkBox_A" text="CheckBox-A" />
-                    <CheckBox id="checkBox_B" text="CheckBox-B" />
+                    <CheckBox id="checkBox1" text="CheckBox" />
+                    <CheckBox id="checkBox2" text="CheckBox" />
                   </children>
                 </HBox>
-                <ChoiceBox fx:id="choiceBox" prefHeight="21.0" prefWidth="223.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <ChoiceBox id="choiceBox1" prefHeight="21.0" prefWidth="223.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
                       <String fx:value="Item 1" />
