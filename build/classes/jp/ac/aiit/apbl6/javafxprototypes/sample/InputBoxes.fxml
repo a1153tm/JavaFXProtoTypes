@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<VBox fx:id="view" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.ac.aiit.apbl6.javafxprototypes.sample.InputBoxes">
+<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.ac.aiit.apbl6.javafxprototypes.sample.InputBoxes">
   <children>
     <HBox id="hBox1" alignment="CENTER" prefWidth="300.0">
       <children>

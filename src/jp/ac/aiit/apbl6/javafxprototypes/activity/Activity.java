@@ -8,33 +8,38 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Toggle;
 import javafx.scene.layout.Pane;
 
 public abstract class Activity implements Initializable
 {
     protected Activity parent;
 
+    protected View view;
+    
     @FXML
-    protected Pane view;
+    protected Pane root;
 
     @Override
     abstract public void initialize(URL url, ResourceBundle rb);
 
-    public final Pane getView()
+    public final View getView()
     {
         return view;
     }
 
-    public final void setView(Pane view)
+    public final void setView()
+    {
+        this.view = new View(root);
+    }
+
+    public final void setView(View view)
     {
         this.view = view;
     }
-        
+
     public abstract void setParent(Activity parent);
 
     // called from ActivityFactory
@@ -103,13 +108,13 @@ public abstract class Activity implements Initializable
         if (child == null)
             //ToDo:Throw custom exception
             System.err.println("child node:" + nodeId + " not found.");
-        target.getChildren().add(child.getView());
+        target.getChildren().add(child.getView().toNode());
     }
 
     protected Pane getPane(String nodeId)
     {
         List<Pane> targetPanes = new ArrayList<Pane>();
-        findPane(view, nodeId, targetPanes);
+        findPane(view.toNode(), nodeId, targetPanes);
         return targetPanes.isEmpty()? null : targetPanes.get(0);
     }
     

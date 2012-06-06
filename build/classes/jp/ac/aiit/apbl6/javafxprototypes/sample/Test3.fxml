@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="650.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.ac.aiit.apbl6.javafxprototypes.sample.Test3">
+  <children>
+    <VBox id="vBox1" fx:id="vbox" alignment="CENTER" prefHeight="310.0" prefWidth="1024.0" spacing="20.0" AnchorPane.bottomAnchor="201.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="139.0">
+      <children>
+        <Label id="label1" blendMode="SRC_OVER" text="Page3">
+          <font>
+            <Font size="20.0" />
+          </font>
+        </Label>
+        <TextField id="textField1" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="300.0" text="TextField" />
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

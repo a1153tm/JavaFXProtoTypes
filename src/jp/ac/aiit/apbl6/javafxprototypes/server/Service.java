@@ -7,10 +7,11 @@ package jp.ac.aiit.apbl6.javafxprototypes.server;
 import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jp.ac.aiit.apbl6.javafxprototypes.browser.AbstractActivity;
+import javafx.scene.layout.Pane;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.Activity;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.View;
 import jp.ac.aiit.apbl6.javafxprototypes.browser.Browser;
 import jp.ac.aiit.apbl6.javafxprototypes.browser.Request;
-import jp.ac.aiit.apbl6.javafxprototypes.browser.View;
 
 /**
  * 
@@ -32,9 +33,9 @@ public class Service {
         String method = request.getMethod();
         Browser browser = request.getBrowser();
         
-        Target target = Resolver.getInstance().resolve(url, null);
+        Target target = Resolver.getInstance().resolve(method, url);
         String clazz = target.getActivity().getName();
-        AbstractActivity activity 
+        Activity activity 
                 = ActivityManager.getInstance().getActivity(clazz);
         
         View view = null;

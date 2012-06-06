@@ -7,22 +7,22 @@ package jp.ac.aiit.apbl6.javafxprototypes.server;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jp.ac.aiit.apbl6.javafxprototypes.browser.AbstractActivity;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.Activity;
 
 /**
  *
  * @author ahayama
  */
 public class Target {
-    private Class<AbstractActivity> activity;
+    private Class<Activity> activity;
     private Method method;
     
     public Target(String activity, String method)
     {
         try {
-            this.activity = (Class<AbstractActivity>) Class.forName(activity);
-            this.method = this.activity.getMethod(method, (Class<AbstractActivity>)null);
-            
+            this.activity = (Class<Activity>) Class.forName(activity);
+            //this.method = this.activity.getMethod(method, (Class<Activity>)null);
+            this.method = this.activity.getMethod(method, null);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Target.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NoSuchMethodException ex) {

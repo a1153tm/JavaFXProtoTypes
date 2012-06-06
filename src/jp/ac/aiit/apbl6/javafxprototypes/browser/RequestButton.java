@@ -10,6 +10,11 @@ public class RequestButton extends Button implements Requestable
     private String method;
     private RequestHelper<RequestButton> helper;
 
+    public RequestButton()
+    {
+        this(null, null, null);
+    }
+    
     public RequestButton(String url, String method)
     {
         this(url, method, null);

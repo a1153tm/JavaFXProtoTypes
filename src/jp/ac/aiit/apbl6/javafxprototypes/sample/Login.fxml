@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" fx:id="view" prefHeight="200.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.ac.aiit.apbl6.javafxprototypes.sample.Login">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="200.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.ac.aiit.apbl6.javafxprototypes.sample.Login">
   <children>
     <VBox id="vBox1" alignment="CENTER" prefHeight="200.0" prefWidth="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>

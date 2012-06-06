@@ -4,6 +4,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.View;
 
 public class Transitions
 {
@@ -40,7 +41,6 @@ public class Transitions
         if (!forwardHistory.isEmpty())
         {
             if (currentView.get() != null) {
-                System.out.println("forwarding");
                 backHistory.add(backHistory.size(), currentView.get());
             }
             View forwardView = forwardHistory.remove(0);

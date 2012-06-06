@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import jp.ac.aiit.apbl6.javafxprototypes.browser.Browser;
 import jp.ac.aiit.apbl6.javafxprototypes.browser.Header;
-import jp.ac.aiit.apbl6.javafxprototypes.browser.Service;
+import jp.ac.aiit.apbl6.javafxprototypes.server.Service;
 
 public class JavaFXProtoTypes extends Application {
 
@@ -25,7 +25,7 @@ public class JavaFXProtoTypes extends Application {
         primaryStage.setScene(new Scene(browser, 1024, 768));
         primaryStage.show();
 
-        
+        /*
         Test1Activity test1 = new Test1Activity();
         Service.getInstance().addView("/test1", test1.getView());
         Test2Activity test2 = new Test2Activity();
@@ -33,7 +33,6 @@ public class JavaFXProtoTypes extends Application {
         Test3Activity test3 = new Test3Activity();
         Service.getInstance().addView("/test3", test3.getView());        
         browser.getTransitions().setCurrentView(test1.getView());
- 
-        
+        */
     }
 }

@@ -3,6 +3,7 @@ package jp.ac.aiit.apbl6.javafxprototypes.browser;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.View;
 
 public class ForwardButton extends HistoryButton
 {

@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.StackPane;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.View;
 
 public class Body extends StackPane
 {

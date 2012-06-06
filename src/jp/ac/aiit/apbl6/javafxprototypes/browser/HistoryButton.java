@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.View;
 
 public abstract class HistoryButton extends Button
 {

@@ -8,7 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jp.ac.aiit.apbl6.javafxprototypes.browser.AbstractActivity;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.Activity;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.ActivityFactory;
+
 
 /**
  *
@@ -18,7 +20,7 @@ public class ActivityManager {
     
     private static final ActivityManager instance = new ActivityManager();
     
-    private Map<String, AbstractActivity> activities = new HashMap<String, AbstractActivity>();
+    private Map<String, Activity> activities = new HashMap<String, Activity>();
     
     private ActivityManager() {
     }
@@ -27,12 +29,13 @@ public class ActivityManager {
         return instance;
     }
     
-    public AbstractActivity getActivity(String clazz) {
-        AbstractActivity activity = activities.get(clazz);
+    public Activity getActivity(String clazz) {
+        Activity activity = activities.get(clazz);
         if (activity == null) {
+            /*
             try {
                 try {
-                    activity = (AbstractActivity) Class.forName(clazz).newInstance();
+                    activity = (Activity) Class.forName(clazz).newInstance();
                     activities.put(clazz, activity);
                 } catch (InstantiationException ex) {
                     Logger.getLogger(ActivityManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,6 +45,8 @@ public class ActivityManager {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ActivityManager.class.getName()).log(Level.SEVERE, null, ex);
             }
+            */
+            activity = ActivityFactory.getInstance().createActivity(clazz);
         }
         return activity;
     }

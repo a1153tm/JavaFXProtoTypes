@@ -2,6 +2,7 @@ package jp.ac.aiit.apbl6.javafxprototypes.browser;
 
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.View;
 
 public class Browser extends StackPane {
     private Transitions transitions;
