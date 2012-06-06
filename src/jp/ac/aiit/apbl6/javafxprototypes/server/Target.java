@@ -5,6 +5,7 @@
 package jp.ac.aiit.apbl6.javafxprototypes.server;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jp.ac.aiit.apbl6.javafxprototypes.activity.Activity;
@@ -22,7 +23,8 @@ public class Target {
         try {
             this.activity = (Class<Activity>) Class.forName(activity);
             //this.method = this.activity.getMethod(method, (Class<Activity>)null);
-            this.method = this.activity.getMethod(method, null);
+            //this.method = this.activity.getMethod(method, null);
+            this.method = this.activity.getMethod(method, new Class[]{ Map.class });
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Target.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NoSuchMethodException ex) {

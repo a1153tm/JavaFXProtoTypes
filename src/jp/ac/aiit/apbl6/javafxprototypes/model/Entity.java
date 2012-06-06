@@ -30,25 +30,25 @@ public abstract class Entity
     }
     
     @SuppressWarnings("unchecked")
-    protected void add()
+    public void add()
     {
         load();
         store.add(this);
     }
     
-    protected <T> T findById(Integer id)
+    public <T> T findById(Integer id)
     {
         load();
         return (T)store.findById(id);
     }
 
-    protected <T> List<T> findAll()
+    public <T> List<T> findAll()
     {
         load();
         return store.findAll();
     }    
 
-    protected final void save()
+    public void save()
     {
         load();
         store.save();

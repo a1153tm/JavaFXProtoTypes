@@ -28,7 +28,6 @@ public class Broker
     {
         Request request = createRequest(control);
         Service.getInstance().doService(request);
-        showParameters(request.getParameters());
     }
 
     private Request createRequest(String url, String method)
@@ -44,6 +43,7 @@ public class Broker
     {
         Request request = createRequest(control.getUrl(), control.getMethod());
         request.setParameters(collectParameters(control));
+        showParameters(request.getParameters());
         return request;
     }
 
@@ -51,21 +51,37 @@ public class Broker
     {
         Map parameters = new HashMap<String, String>();
 
-        Pane parent = null;
+        Pane form = null;
         Object o = control.getParent();
         while (o != null && o instanceof Node) {
-            if (Pane.class.isAssignableFrom(o.getClass())) {
-                parent = (Pane)o;
+            if (Pane.class.isAssignableFrom(o.getClass()) &&
+                ((Pane)o).getId() != null && ((Pane)o).getId().equals("form"))
+            {
+                form = (Pane)o;
                 break;
             }
+            System.out.println(((Node)o).getId());
             o = ((Node)o).getParent();
         }
-        if (parent == null) return parameters;
+        if (form == null)
+        {
+            System.out.println("form is null");
+            return parameters;
+        }
+        searchParameters(form, parameters);
+        return parameters;
+    }
         
-        ObservableList<Node> nodes = parent.getChildren();
+    private void searchParameters(Pane pane, Map parameters)
+    {
+        ObservableList<Node> nodes = pane.getChildren();
         for (Iterator<Node> it = nodes.iterator(); it.hasNext();) {
             Node node = it.next();
-            if (TextField.class.isAssignableFrom(node.getClass()))
+            if (Pane.class.isAssignableFrom(node.getClass()))
+            {
+                searchParameters((Pane)node, parameters);
+            }
+            else if (TextField.class.isAssignableFrom(node.getClass()))
             {
                 setTextField(parameters, (TextField)node);
             }
@@ -73,8 +89,19 @@ public class Broker
             {
                 setPasswordField(parameters, (PasswordField)node);
             }
+            else if (RadioButton.class.isAssignableFrom(node.getClass()))
+            {
+                setRadioButton(parameters, (RadioButton)node);
+            }
+            else if (CheckBox.class.isAssignableFrom(node.getClass()))
+            {
+                setCheckBox(parameters, (CheckBox)node);
+            }
+            else if (ChoiceBox.class.isAssignableFrom(node.getClass()))
+            {
+                setChoiceBox(parameters, (ChoiceBox)node);
+            }
         }
-        return parameters;
     }
 
     private void setTextField(Map parameters, TextField textField)
@@ -83,7 +110,6 @@ public class Broker
         if (key == null || key.equals(""))
             return;
         String value = textField.getText();
-        System.out.println(value);
         parameters.put(key, value);
     }
 
@@ -98,18 +124,28 @@ public class Broker
 
     private void setRadioButton(Map parameters, RadioButton radioButton)
     {
-        ToggleGroup group = radioButton.getToggleGroup();
-        if (group == null)
-            return;
         if (!radioButton.isSelected())
             return;
-        String key = group.toString();
+        String key = radioButton.getId();
         if (key == null || key.equals(""))
             return;
-        String value = radioButton.getUserData().toString();
+        //String value = radioButton.getUserData().toString();
+        String value = radioButton.getText();
         parameters.put(key, value);
     }
 
+    private void setCheckBox(Map parameters, CheckBox checkBox)
+    {
+        if (!checkBox.isSelected())
+            return;
+        String key = checkBox.getId();
+        if (key == null || key.equals(""))
+            return;
+        //String value = radioButton.getUserData().toString();
+        String value = checkBox.getText();
+        parameters.put(key, value);
+    }
+        
     private void setChoiceBox(Map parameters, ChoiceBox choiceBox)
     {
         String key = choiceBox.getId();
@@ -121,6 +157,7 @@ public class Broker
 
     private void showParameters(Map parameters)
     {
+        System.out.println("----- send parameters ------");
         Set<String> keys = parameters.keySet();
         for (Iterator<String> it = keys.iterator(); it.hasNext();)
         {

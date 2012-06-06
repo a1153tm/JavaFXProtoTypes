@@ -2,6 +2,7 @@ package jp.ac.aiit.apbl6.javafxprototypes.sample;
 
 import java.beans.EventHandler;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import jp.ac.aiit.apbl6.javafxprototypes.activity.Activity;
+import jp.ac.aiit.apbl6.javafxprototypes.activity.View;
+import jp.ac.aiit.apbl6.javafxprototypes.browser.RequestButton;
 import jp.ac.aiit.apbl6.javafxprototypes.browser.RequestHyperLink;
 
 public class Test1 extends Activity
@@ -25,6 +28,7 @@ public class Test1 extends Activity
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        /*
         Button test = new Button("test");
         buttonHerer.getChildren().add(test);
         test.setOnAction(new javafx.event.EventHandler<ActionEvent>()
@@ -35,12 +39,19 @@ public class Test1 extends Activity
                     checkToggle();
                 }
             });
-        
+        */
         //radioA.get
+        RequestButton rbtn = new RequestButton("/test2", RequestButton.POST, "Go to Test2");
+        buttonHerer.getChildren().add(rbtn);
     }
 
     @Override
     public void setParent(Activity parent) {
+    }
+    
+    public View getTest(Map params)
+    {
+        return view;
     }
     
     private void checkToggle()

@@ -1,4 +1,2 @@
-GET     /test1          jp.ac.aiit.apbl6.javafxprototypes.sample.Test1#getView
-GET     /test2          jp.ac.aiit.apbl6.javafxprototypes.sample.Test2#getView
-GET     /test3          jp.ac.aiit.apbl6.javafxprototypes.sample.Test3#getView
-GET     /login          jp.ac.aiit.apbl6.javafxprototypes.sample.Login#getView
+GET     /test1          jp.ac.aiit.apbl6.javafxprototypes.sample.Test1#getTest
+POST    /test2          jp.ac.aiit.apbl6.javafxprototypes.sample.Test2#postTest

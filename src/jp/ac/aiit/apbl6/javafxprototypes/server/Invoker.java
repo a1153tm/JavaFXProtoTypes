@@ -20,7 +20,8 @@ public class Invoker {
             throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         
         //return (View)method.invoke(activity, method, new Object[]{parameters});
-        return (View)method.invoke(activity, null);
+        //return (View)method.invoke(activity, null);
+        return (View)method.invoke(activity, new Object[]{parameters});
     }
     
 }

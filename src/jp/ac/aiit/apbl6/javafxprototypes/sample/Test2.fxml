@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorPane" fx:id="root" prefHeight="650.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.ac.aiit.apbl6.javafxprototypes.sample.Test2">
   <children>
-    <VBox id="vBox1" fx:id="vbox" alignment="CENTER" prefHeight="310.0" prefWidth="1024.0" spacing="20.0" AnchorPane.bottomAnchor="201.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="139.0">
+    <VBox id="vBox1" fx:id="vbox" prefHeight="650.0" prefWidth="1024.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <Label id="label1" blendMode="SRC_OVER" text="Page2">
+        <Label id="label1" text="Page2:Listing">
+          <effect>
+            <DropShadow color="#0c0099">
+              <input>
+                <Bloom />
+              </input>
+            </DropShadow>
+          </effect>
           <font>
-            <Font size="20.0" />
+            <Font name="Al Bayan Plain" size="20.0" />
           </font>
         </Label>
-        <TextField id="textField1" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="300.0" text="TextField" />
+        <TextArea id="textArea1" editable="false" prefHeight="60.0" prefWidth="984.0" text="Page1で入力したデータの一覧を表示しています。
+保存されたデータもロードして表示されています。" wrapText="true" />
+        <AnchorPane id="anchorPane1" prefHeight="496.0" prefWidth="984.0" style="-fx-background-color: #fffff0;">
+          <children>
+            <VBox id="vBox2" prefHeight="493.0" prefWidth="984.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <TableView id="tableView1" prefHeight="434.0" prefWidth="964.0" />
+                <StackPane id="stackPane1" prefHeight="150.0" prefWidth="200.0" />
+              </children>
+            </VBox>
+          </children>
+          <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+          </padding>
+        </AnchorPane>
       </children>
+      <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      </padding>
     </VBox>
   </children>
 </AnchorPane>

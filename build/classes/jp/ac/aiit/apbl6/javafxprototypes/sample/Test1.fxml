@@ -30,7 +30,7 @@
 次画面では保存されているデータの一覧を表示します。" wrapText="true" />
         <AnchorPane id="anchorPane1" prefHeight="496.0" prefWidth="984.0" style="-fx-background-color: #fffff0;">
           <children>
-            <GridPane id="gridPane1" fx:id="form" alignment="CENTER_LEFT" layoutX="14.0" layoutY="7.0" prefHeight="263.0" prefWidth="707.0" vgap="10.0">
+            <GridPane fx:id="form" alignment="CENTER_LEFT" layoutX="14.0" layoutY="7.0" prefHeight="263.0" prefWidth="707.0" vgap="10.0">
               <children>
                 <Label id="label2" text="Text Field :" GridPane.columnIndex="0" GridPane.rowIndex="0">
                   <font>
@@ -41,7 +41,7 @@
                 <Label id="label2" font="$x1" text="Checkbox :" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <Label id="label2" font="$x1" text="Choice Box :" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                 <TilePane id="tilePane1" fx:id="buttonHerer" alignment="CENTER" prefHeight="57.0" prefWidth="586.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <TextField id="textField1" fx:id="textField" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <TextField id="textField" fx:id="textField" GridPane.columnIndex="1" GridPane.rowIndex="0">
                   <maxHeight>
                     <Integer fx:value="-1" />
                   </maxHeight>
@@ -72,16 +72,16 @@
                 </HBox>
                 <HBox id="hBox1" alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="586.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                   <children>
-                    <CheckBox id="checkBox_A" text="CheckBox-A" />
-                    <CheckBox id="checkBox_B" text="CheckBox-B" />
+                    <CheckBox fx:id="checkBox_A" text="CheckBox-A" />
+                    <CheckBox fx:id="checkBox_B" text="CheckBox-B" />
                   </children>
                 </HBox>
                 <ChoiceBox fx:id="choiceBox" prefHeight="21.0" prefWidth="223.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
-                      <String fx:value="Item 1" />
-                      <String fx:value="Item 2" />
-                      <String fx:value="Item 3" />
+                      <String fx:value="item-A" />
+                      <String fx:value="item-B" />
+                      <String fx:value="item-C" />
                     </FXCollections>
                   </items>
                 </ChoiceBox>
