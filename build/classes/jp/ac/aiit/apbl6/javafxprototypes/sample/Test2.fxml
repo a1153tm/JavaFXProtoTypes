@@ -31,8 +31,17 @@
           <children>
             <VBox id="vBox2" prefHeight="493.0" prefWidth="984.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <children>
-                <TableView id="tableView1" prefHeight="434.0" prefWidth="964.0" />
-                <StackPane id="stackPane1" prefHeight="150.0" prefWidth="200.0" />
+                <TableView fx:id="tableView" prefHeight="434.0" prefWidth="964.0">
+                  <columns>
+                    <TableColumn fx:id="idCol"          text="ID"           prefWidth="50.0" />
+                    <TableColumn fx:id="textFiledCol"   text="Text Field"   prefWidth="360.0" />
+                    <TableColumn fx:id="radioCol"       text="Radio Button" prefWidth="120.0" />
+                    <TableColumn fx:id="checkBoxACol"   text="Chcek Box A"  prefWidth="120.0" />
+                    <TableColumn fx:id="checkBoxBCol"   text="Chcek Box B"  prefWidth="120.0" />
+                    <TableColumn fx:id="choiceBoxCol"   text="Choice Box"   prefWidth="120.0" />
+                  </columns>  
+                </TableView>
+                <StackPane id="stackPane1" prefHeight="30.0" prefWidth="964.0" />
               </children>
             </VBox>
           </children>

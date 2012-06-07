@@ -41,7 +41,7 @@
                     <TableColumn fx:id="choiceBoxCol"   text="Choice Box"   prefWidth="120.0" />
                   </columns>  
                 </TableView>
-                <StackPane id="stackPane1" prefHeight="30.0" prefWidth="964.0" />
+                <StackPane id="stackPane1" prefHeight="150.0" prefWidth="200.0" />
               </children>
             </VBox>
           </children>
