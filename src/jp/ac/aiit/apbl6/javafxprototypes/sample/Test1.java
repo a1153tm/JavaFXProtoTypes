@@ -28,19 +28,6 @@ public class Test1 extends Activity
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*
-        Button test = new Button("test");
-        buttonHerer.getChildren().add(test);
-        test.setOnAction(new javafx.event.EventHandler<ActionEvent>()
-            {
-                @Override
-                public void handle(ActionEvent event)
-                {
-                    checkToggle();
-                }
-            });
-        */
-        //radioA.get
         RequestButton rbtn = new RequestButton("/test2", RequestButton.POST, "Go to Test2");
         buttonHerer.getChildren().add(rbtn);
     }
