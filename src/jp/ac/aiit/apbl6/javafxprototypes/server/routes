@@ -1,2 +1,5 @@
 GET     /test1          jp.ac.aiit.apbl6.javafxprototypes.sample.Test1#getTest
 POST    /test2          jp.ac.aiit.apbl6.javafxprototypes.sample.Test2#postTest
+GET     /menu           jp.ac.aiit.apbl6.javafxprototypes.sample.questionnaire.Menu#show
+GET     /questionnaire  jp.ac.aiit.apbl6.javafxprototypes.sample.questionnaire.Questionnaire#show
+POST    /results        jp.ac.aiit.apbl6.javafxprototypes.sample.questionnaire.Results#show

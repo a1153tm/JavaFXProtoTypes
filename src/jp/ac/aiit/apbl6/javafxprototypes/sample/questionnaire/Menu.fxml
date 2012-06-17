@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.ac.aiit.apbl6.javafxprototypes.sample.questionnaire.Menu">
+  <children>
+    <Label id="label1" fx:id="title" layoutX="50.0" layoutY="15.0" prefHeight="24.0" prefWidth="213.0" text="label">
+      <effect>
+        <Bloom>
+          <input>
+            <DropShadow color="#004166" />
+          </input>
+        </Bloom>
+      </effect>
+      <font>
+        <Font size="20.0" fx:id="x1" />
+      </font>
+    </Label>
+    <TilePane fx:id="form" layoutX="50.0" layoutY="79.0" prefHeight="200.0" prefWidth="200.0">
+      <children>
+        <HBox id="hBox1" alignment="CENTER" prefHeight="55.0" prefWidth="466.0">
+          <children>
+            <Label id="label2" fx:id="cource" alignment="CENTER" prefHeight="16.0" prefWidth="100.0">
+              <font>
+                <Font size="16.0" />
+              </font>
+            </Label>
+            <ChoiceBox fx:id="choiceBox1" prefHeight="21.0" prefWidth="200.0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Javaプログラミング基礎編" />
+                  <String fx:value="Javaプログラミング応用編" />
+                  <String fx:value="サーバサイドJava編" />
+                </FXCollections>
+              </items>
+            </ChoiceBox>
+          </children>
+        </HBox>
+        <VBox fx:id="vBox1" alignment="CENTER" prefHeight="100.0" prefWidth="466.0" spacing="10.0" />
+      </children>
+    </TilePane>
+  </children>
+</AnchorPane>
