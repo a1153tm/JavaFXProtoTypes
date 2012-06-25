@@ -5,8 +5,6 @@
 package jp.ac.aiit.apbl6.javafxprototypes.sample.questionnaire;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jp.ac.aiit.apbl6.javafxprototypes.browser.Browser;

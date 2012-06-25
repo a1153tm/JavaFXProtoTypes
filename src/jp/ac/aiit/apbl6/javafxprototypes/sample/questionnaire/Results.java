@@ -10,11 +10,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -30,9 +26,6 @@ import jp.ac.aiit.apbl6.javafxprototypes.sample.SampleEntry;
  */
 public class Results extends Activity {
     
-    @FXML
-    private Label title;
-
     @FXML
     private VBox vbox;
     
@@ -62,8 +55,7 @@ public class Results extends Activity {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        title.setText("集計結果");
-        vbox.getChildren().add(new RequestHyperLink("/menu", "メニューに戻る"));
+        vbox.getChildren().add(new RequestHyperLink("/menu", LocalizeLabel.getLabel(this.getClass(), "menu")));
         
         noCol.setCellValueFactory(new PropertyValueFactory<ResultsEntry,Integer>("id"));
         courseCol.setCellValueFactory(new PropertyValueFactory<ResultsEntry,String>("course"));
@@ -77,16 +69,19 @@ public class Results extends Activity {
     {
         ResultsEntry entry = new ResultsEntry();
 
-        entry.setCourse(params.get("course"));
-        entry.setAnswer1(params.get("answer1"));
-        entry.setAnswer2(params.get("answer2"));
-        entry.setAnswer3(params.get("answer3"));
-        entry.setAnswer4(params.get("answer4"));
-        entry.setAnswer5(params.get("answer5"));
+        if (params.get("course") != null)
+        {
+            entry.setCourse(params.get("course"));
+            entry.setAnswer1(params.get("answer1"));
+            entry.setAnswer2(params.get("answer2"));
+            entry.setAnswer3(params.get("answer3"));
+            entry.setAnswer4(params.get("answer4"));
+            entry.setAnswer5(params.get("answer5"));
 
-        entry.add();
-        entry.save();
-        
+            entry.add();
+            entry.save();
+        }
+
         List<SampleEntry> all = entry.findAll();
         ObservableList<SampleEntry> entries = FXCollections.observableArrayList(all);
         tableView.setItems(entries);
