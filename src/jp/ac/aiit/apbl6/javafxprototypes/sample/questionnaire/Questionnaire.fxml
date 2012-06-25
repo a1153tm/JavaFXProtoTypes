@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="jp.ac.aiit.apbl6.javafxprototypes.sample.questionnaire.Questionnaire">
   <children>
-    <Label id="label1" fx:id="qlabel6" layoutX="15.0" layoutY="430.0" prefHeight="24.0" prefWidth="562.0">
+    <Label fx:id="qlabel6" layoutX="15.0" layoutY="430.0" prefHeight="24.0" prefWidth="562.0" text="qlabel6">
       <font>
         <Font size="14.0" fx:id="x1" />
       </font>
@@ -21,7 +21,7 @@
       <children>
         <HBox id="hBox2" prefHeight="38.0" prefWidth="538.0">
           <children>
-            <Label id="label2" fx:id="title" alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="105.0" text="Label">
+            <Label fx:id="title" alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="105.0" text="title">
               <effect>
                 <Reflection bottomOpacity="0.1" topOffset="0.1">
                   <input>
@@ -40,7 +40,7 @@
                 <Color blue="1.000" green="0.000" red="0.078" fx:id="x3" />
               </textFill>
             </Label>
-            <Label fx:id="coursetitle" font="$x2" prefHeight="38.0" prefWidth="320.0" text="Label" textFill="$x3">
+            <Label fx:id="coursetitle" font="$x2" prefHeight="38.0" prefWidth="320.0" text="coursetitle" textFill="$x3">
               <effect>
                 <Reflection bottomOpacity="0.08412698412698413" fraction="0.7587301587301587" topOffset="0.08412698412698413">
                   <input>
@@ -58,10 +58,10 @@
         </HBox>
         <GridPane id="gridPane" prefHeight="236.0" prefWidth="562.0">
           <children>
-            <Label id="label1" fx:id="qlabel1" font="$x1" prefHeight="24.0" prefWidth="562.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Label id="label1" fx:id="qlabel2" font="$x1" prefHeight="24.0" prefWidth="562.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Label id="label1" fx:id="qlabel3" font="$x1" prefHeight="24.0" prefWidth="562.0" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <Label id="label1" fx:id="qlabel4" font="$x1" prefHeight="24.0" prefWidth="562.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Label fx:id="qlabel1" font="$x1" prefHeight="24.0" prefWidth="562.0" text="qlabel1" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label fx:id="qlabel2" font="$x1" prefHeight="24.0" prefWidth="562.0" text="qlabel2" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label fx:id="qlabel3" font="$x1" prefHeight="24.0" prefWidth="562.0" text="qlabel3" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Label fx:id="qlabel4" font="$x1" prefHeight="24.0" prefWidth="562.0" text="qlabel4" GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <HBox id="hBox1" alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="263.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <children>
                 <RadioButton fx:id="answer1" text="1">
@@ -78,7 +78,7 @@
                 <Insets />
               </GridPane.margin>
             </HBox>
-            <Label id="label1" fx:id="qlabel5" font="$x1" prefHeight="24.0" prefWidth="562.0" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <Label fx:id="qlabel5" font="$x1" prefHeight="24.0" prefWidth="562.0" text="qlabel5" GridPane.columnIndex="0" GridPane.rowIndex="5" />
             <HBox id="hBox1" alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="263.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
               <children>
                 <RadioButton fx:id="answer3" text="1">
@@ -100,13 +100,13 @@
             </HBox>
             <HBox id="hBox4" alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="254.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
               <children>
-                <RadioButton id="answer2" fx:id="radioButton4" text="Good">
+                <RadioButton fx:id="radioButton4" text="Good">
                   <toggleGroup>
                     <ToggleGroup fx:id="toggleGroup_x2" />
                   </toggleGroup>
                 </RadioButton>
-                <RadioButton id="answer2" fx:id="radioButton5" text="Long" toggleGroup="$toggleGroup_x2" />
-                <RadioButton id="answer2" fx:id="radioButton6" text="Short" toggleGroup="$toggleGroup_x2" />
+                <RadioButton fx:id="radioButton5" text="Long" toggleGroup="$toggleGroup_x2" />
+                <RadioButton fx:id="radioButton6" text="Short" toggleGroup="$toggleGroup_x2" />
               </children>
             </HBox>
           </children>
