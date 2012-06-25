@@ -3,13 +3,11 @@ package jp.ac.aiit.apbl6.javafxprototypes.activity;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
+import jp.ac.aiit.apbl6.javafxprototypes.sample.questionnaire.LocalizeLabel;
 
 public class ActivityFactory {
     private static ActivityFactory factory = new ActivityFactory();
@@ -44,10 +42,10 @@ public class ActivityFactory {
     // ToDo:Change FXMLLoder to singleton
     private Activity loadActivity(String className, Activity parent)
     {
-        String path = "../sample/" + getPath(className);
+        String path = "../sample/questionnaire/" + getPath(className);
         InputStream fxmlStream = null;
         fxmlStream = getClass().getResourceAsStream(path);
-
+        
         if (fxmlStream != null)
         {
             try
@@ -59,6 +57,9 @@ public class ActivityFactory {
                 activity.setParent(parent); 
                 if (activity == null)
                     System.out.println("controlle is null");
+                
+LocalizeLabel.localizeLabel(activity.getClass(), loader.getRoot());
+
                 return activity;
             } catch (IOException e) {
                 // ToDo:tread exception (wrap with custom exception)

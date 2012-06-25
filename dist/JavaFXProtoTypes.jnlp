@@ -11,7 +11,7 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXProtoTypes.jar" size="91688" download="eager" />
+    <jar href="JavaFXProtoTypes.jar" size="93375" download="eager" />
     <jar href="lib/jsonic-1.2.11.jar" size="213717" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFXProtoTypes" >

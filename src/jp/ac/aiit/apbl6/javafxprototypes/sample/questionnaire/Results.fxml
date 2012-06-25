@@ -13,7 +13,7 @@
   <children>
     <VBox id="vBox1" fx:id="vbox" prefHeight="650.0" prefWidth="1024.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <Label id="label1" fx:id="title">
+        <Label fx:id="title">
           <effect>
             <DropShadow color="#0c0099">
               <input>
